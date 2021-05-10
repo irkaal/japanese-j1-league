@@ -1,12 +1,8 @@
 suppressPackageStartupMessages({
   library(arrow)
-  library(dplyr)
+  library(tidyverse)
   library(lubridate)
-  library(purrr)
-  library(readr)
   library(rvest)
-  library(stringr)
-  library(tidyr)
   library(usethis)
 })
 
