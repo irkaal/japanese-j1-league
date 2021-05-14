@@ -1,4 +1,4 @@
-# Japanese J1 League Results from 2012-2020
+# Japanese J1 League Results
 
 ## Introduction
 
