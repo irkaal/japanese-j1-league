@@ -11,7 +11,7 @@ path <- read_html("https://www.football-data.co.uk/japan.php") |>
   html_node(css = "a:contains('CSV')") |>
   html_attr("href") |>
   map_chr(~ str_c("https://www.football-data.co.uk/", .))
-ui_info("OK")
+ui_done("OK")
 
 ui_info("Retrieving results...")
 results <- read_csv(
@@ -29,7 +29,7 @@ results <- read_csv(
   )
 ) |>
   drop_na(Date)
-ui_info("OK")
+ui_done("OK")
 
 ui_info("Parsing dates...")
 results <- results |>
@@ -41,11 +41,11 @@ results <- results |>
     Time = NULL
   ) |> 
   select(Season, DateTime, everything())
-ui_info("OK")
+ui_done("OK")
 
 ui_info("Saving results...")
 unlink("data", recursive = TRUE)
 dir.create("data")
 write_parquet(results, "data/results.parquet")
 write_csv(results, "data/results.csv")
-ui_info("OK")
+ui_done("OK")
